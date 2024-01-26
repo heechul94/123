@@ -1,4 +1,6 @@
+import DetailContainer from "components/units/detail/DetailContainer";
+
 const Detail = () => {
-    return <main>상세페이지 입니다.</main>;
+    return <DetailContainer />;
 };
 export default Detail;

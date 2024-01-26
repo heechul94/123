@@ -1,4 +1,6 @@
+import ListsContainer from "components/units/lists/ListsContainer";
+
 const Home = () => {
-    return <main>홈페이지 입니다.</main>;
+    return <ListsContainer />;
 };
 export default Home;
