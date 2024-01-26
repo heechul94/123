@@ -1,8 +1,10 @@
+import AddForm from "components/commons/AddForm";
+
 const ListsPresenter = () => {
     return (
-        <>
-            <div>홈 프레젠터</div>
-        </>
+        <main>
+            <AddForm />
+        </main>
     );
 };
 export default ListsPresenter;
