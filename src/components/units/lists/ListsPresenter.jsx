@@ -1,9 +1,11 @@
-import AddForm from "components/commons/AddForm";
+import AddForm from "components/commons/addForm/AddForm";
+import ListContainer from "./list/ListContainer";
 
 const ListsPresenter = () => {
     return (
         <main>
             <AddForm />
+            <ListContainer />
         </main>
     );
 };
