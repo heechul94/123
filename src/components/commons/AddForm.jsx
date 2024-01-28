@@ -19,16 +19,16 @@ const AddForm = () => {
     return (
         <AddFormWrapper>
             <Form>
-                <AddFormLabel htmlFor="nickName">
+                <AddFormLabel>
                     닉네임 :
-                    <AddFormInput id="nickName" name="nickName" />
+                    <AddFormInput name="nickName" />
                 </AddFormLabel>
-                <AddFormLabel htmlFor="content">
+                <AddFormLabel>
                     내용 :
-                    <AddFormTextarea id="content" name="content" />
+                    <AddFormTextarea name="content" />
                 </AddFormLabel>
-                <AddFormLabel htmlFor="member">
-                    <select id="member" name="member">
+                <AddFormLabel>
+                    <select name="member">
                         <option value={"INE"}>아이네</option>
                         <option value={"JINGBURGER"}>징버거</option>
                         <option value={"LILPA"}>릴파</option>
