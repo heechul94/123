@@ -1,11 +1,13 @@
 import AddForm from "components/commons/addForm/AddForm";
 import ListContainer from "./list/ListContainer";
 
-const ListsPresenter = () => {
+const ListsPresenter = ({ fakeData }) => {
     return (
         <main>
             <AddForm />
-            <ListContainer />
+            {fakeData.map((item) => (
+                <ListContainer key={item.id} item={item} />
+            ))}
         </main>
     );
 };

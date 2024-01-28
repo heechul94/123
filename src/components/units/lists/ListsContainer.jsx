@@ -1,6 +1,8 @@
 import ListPresenter from "./ListsPresenter";
+import fakeData from "../../../assets/fakeData.json";
 
 const ListsContainer = () => {
-    return <ListPresenter />;
+    console.log(fakeData);
+    return <ListPresenter fakeData={fakeData} />;
 };
 export default ListsContainer;
