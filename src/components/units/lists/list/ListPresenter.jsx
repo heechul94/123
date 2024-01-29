@@ -1,3 +1,4 @@
+import { getDate } from "shared/library/utils";
 import styled from "styled-components";
 
 const LetterWrapper = styled.article`
@@ -31,14 +32,20 @@ const Content = styled.p`
 `;
 
 const ListPresenter = ({ item }) => {
+    const createdAtArr = item.createdAt.split(" ");
+    const nowDate = getDate().split(" ")[0];
+    const createdDate = createdAtArr[0];
+    const createdHourMinute = createdAtArr[1];
     return (
         <LetterWrapper>
             <LetterHeader>
                 <UserInfoWrapper>
                     <UserProfile src={item.avatar} alt="profile" />
-                    <span>{item.nickname}</span>
+                    <span>{item.nickName}</span>
                 </UserInfoWrapper>
-                <span>{item.createdAt}</span>
+                <span>
+                    {nowDate === createdDate ? createdHourMinute : createdDate}
+                </span>
             </LetterHeader>
             <Content>{item.content}</Content>
         </LetterWrapper>
