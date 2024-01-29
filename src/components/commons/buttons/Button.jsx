@@ -1,22 +1,44 @@
-import selectButtonColor from "shared/library/selectButtonColor";
+import { selectButtonColor } from "shared/library/utils";
 import styled from "styled-components";
 
 const CustomButton = styled.button`
     border: none;
-    color: white;
-    background-color: #000;
+    color: ${(props) =>
+        props.isPickedMember === props.id ? "white" : "black"};
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: ${(props) =>
+        props.isPickedMember === props.id ? props.color : "white"};
     cursor: pointer;
-    &:focus {
-        background-color: ${(props) => props.color};
-    }
+`;
+const SubmitButton = styled.button`
+    border: none;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 `;
 
-const Button = ({ text, color, onClickMemberButtonHandler }) => {
-    color = selectButtonColor(text);
+const Button = ({ text, color, isPickedMember, setIsPickedMember }) => {
+    color = selectButtonColor(isPickedMember);
     return (
-        <CustomButton id={text} color={color}>
-            {text}
-        </CustomButton>
+        <>
+            {text === "등록" ? (
+                <SubmitButton color={color}>{text}</SubmitButton>
+            ) : (
+                <CustomButton
+                    id={text}
+                    isPickedMember={isPickedMember}
+                    color={color}
+                    onClick={() => {
+                        setIsPickedMember(text);
+                    }}
+                >
+                    {text}
+                </CustomButton>
+            )}
+        </>
     );
 };
 export default Button;
