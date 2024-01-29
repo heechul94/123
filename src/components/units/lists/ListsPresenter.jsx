@@ -23,11 +23,13 @@ const ListsPresenter = ({
                     />
                 ))}
             </nav>
-            {data?.map((item) =>
-                isPickedMember === item.writedTo ? (
-                    <ListContainer key={item.id} item={item} />
-                ) : null
-            )}
+            <ul>
+                {data?.map((item) =>
+                    isPickedMember === item.writedTo ? (
+                        <ListContainer key={item.id} item={item} />
+                    ) : null
+                )}
+            </ul>
         </main>
     );
 };
