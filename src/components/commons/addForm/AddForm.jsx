@@ -15,10 +15,10 @@ const AddFormTextarea = styled.textarea`
     resize: none;
 `;
 
-const AddForm = () => {
+const AddForm = ({ onSubmitFanLettersHandler }) => {
     return (
         <AddFormWrapper>
-            <Form>
+            <Form onSubmit={onSubmitFanLettersHandler}>
                 <AddFormLabel>
                     닉네임 :
                     <AddFormInput name="nickName" />
@@ -29,12 +29,12 @@ const AddForm = () => {
                 </AddFormLabel>
                 <AddFormLabel>
                     <select name="member">
-                        <option value={"INE"}>아이네</option>
-                        <option value={"JINGBURGER"}>징버거</option>
-                        <option value={"LILPA"}>릴파</option>
-                        <option value={"JURURU"}>주르르</option>
-                        <option value={"GOSEGU"}>고세구</option>
-                        <option value={"VIICHAN"}>비챤</option>
+                        <option value={"아이네"}>아이네</option>
+                        <option value={"징버거"}>징버거</option>
+                        <option value={"릴파"}>릴파</option>
+                        <option value={"주르르"}>주르르</option>
+                        <option value={"고세구"}>고세구</option>
+                        <option value={"비챤"}>비챤</option>
                     </select>
                 </AddFormLabel>
                 <Button type="submit" text={"등록"} />
