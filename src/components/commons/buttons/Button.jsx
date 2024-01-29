@@ -4,11 +4,11 @@ import styled from "styled-components";
 const CustomButton = styled.button`
     border: none;
     color: ${(props) =>
-        props.isPickedMember === props.id ? "white" : "black"};
+        props.$ispickedmember === props.id ? "white" : "black"};
     border: 1px solid black;
     border-radius: 5px;
     background-color: ${(props) =>
-        props.isPickedMember === props.id ? props.color : "white"};
+        props.$ispickedmember === props.id ? props.color : "white"};
     cursor: pointer;
 `;
 const SubmitButton = styled.button`
@@ -19,17 +19,35 @@ const SubmitButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
 `;
+const DeleteButton = styled.button`
+    border: none;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+`;
 
-const Button = ({ text, color, isPickedMember, setIsPickedMember }) => {
+const Button = ({
+    text,
+    color,
+    isPickedMember,
+    setIsPickedMember,
+    onClickDeleteArticleButtonHandler,
+}) => {
     color = selectButtonColor(isPickedMember);
     return (
         <>
             {text === "등록" ? (
-                <SubmitButton color={color}>{text}</SubmitButton>
+                <SubmitButton>{text}</SubmitButton>
+            ) : text === "삭제" ? (
+                <DeleteButton onClick={onClickDeleteArticleButtonHandler}>
+                    {text}
+                </DeleteButton>
             ) : (
                 <CustomButton
                     id={text}
-                    isPickedMember={isPickedMember}
+                    $ispickedmember={isPickedMember}
                     color={color}
                     onClick={() => {
                         setIsPickedMember(text);
