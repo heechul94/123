@@ -13,6 +13,13 @@ section,summary,time,mark,audio,video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    text-decoration: none;
+}
+a:link{
+    color: inherit;
+}
+a:visited{
+    color: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
