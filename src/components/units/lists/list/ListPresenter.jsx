@@ -37,18 +37,22 @@ const ListPresenter = ({ item }) => {
     const createdDate = createdAtArr[0];
     const createdHourMinute = createdAtArr[1];
     return (
-        <LetterWrapper>
-            <LetterHeader>
-                <UserInfoWrapper>
-                    <UserProfile src={item.avatar} alt="profile" />
-                    <span>{item.nickName}</span>
-                </UserInfoWrapper>
-                <span>
-                    {nowDate === createdDate ? createdHourMinute : createdDate}
-                </span>
-            </LetterHeader>
-            <Content>{item.content}</Content>
-        </LetterWrapper>
+        <li>
+            <LetterWrapper>
+                <LetterHeader>
+                    <UserInfoWrapper>
+                        <UserProfile src={item.avatar} alt="profile" />
+                        <span>{item.nickName}</span>
+                    </UserInfoWrapper>
+                    <span>
+                        {nowDate === createdDate
+                            ? createdHourMinute
+                            : createdDate}
+                    </span>
+                </LetterHeader>
+                <Content>{item.content}</Content>
+            </LetterWrapper>
+        </li>
     );
 };
 export default ListPresenter;
