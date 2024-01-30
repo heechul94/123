@@ -1,4 +1,3 @@
-import Button from "components/commons/buttons/MemberButton";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { DetailContext } from "shared/context/FanLettersContext";
