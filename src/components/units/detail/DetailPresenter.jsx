@@ -1,5 +1,5 @@
-import Button from "components/commons/buttons/Button";
-import { Link } from "react-router-dom";
+import Button from "components/commons/buttons/MemberButton";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const DetailWrapper = styled.main`
@@ -9,34 +9,89 @@ const DetailWrapper = styled.main`
 const ArticleWrapper = styled.article`
     border: 1px solid black;
 `;
-const ArticleHeader = styled.div`
+const ArticleTop = styled.div`
     border-bottom: 1px solid black;
+`;
+const ArticleMiddle = styled.div``;
+const ArticleBottom = styled.div``;
+const DeleteButton = styled.button`
+    border: none;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+`;
+const EditButton = styled.button`
+    border: none;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 `;
 
 const DetailPresenter = ({
+    id,
+    isEdit,
     nickName,
     createdAt,
     content,
+    editedContent,
+    onChangeContentHandler,
     onClickDeleteArticleButtonHandler,
+    onClickEditArticleButtonHandler,
 }) => {
+    const navigate = useNavigate();
     return (
         <DetailWrapper>
             <Link to="/">
                 <div>홈으로</div>
             </Link>
             <ArticleWrapper>
-                <ArticleHeader>
+                <ArticleTop>
                     <span>{nickName}</span>
                     <span>{createdAt}</span>
-                </ArticleHeader>
-                <div>{content}</div>
-                <Button text="수정" />
-                <Button
-                    text="삭제"
-                    onClickDeleteArticleButtonHandler={
-                        onClickDeleteArticleButtonHandler
-                    }
-                />
+                </ArticleTop>
+                {isEdit ? (
+                    <form onSubmit={onClickEditArticleButtonHandler}>
+                        <ArticleMiddle>
+                            <textarea
+                                id="content"
+                                defaultValue={content}
+                                value={editedContent}
+                                onChange={onChangeContentHandler}
+                            />
+                        </ArticleMiddle>
+                        <ArticleBottom>
+                            <button type="submit">적용</button>
+                            <button
+                                type="button"
+                                onClick={() => navigate(`/detail/${id}`)}
+                            >
+                                취소
+                            </button>
+                        </ArticleBottom>
+                    </form>
+                ) : (
+                    <>
+                        <ArticleMiddle>
+                            <div>{content}</div>
+                        </ArticleMiddle>
+                        <ArticleBottom>
+                            <EditButton
+                                onClick={() => navigate(`/editDetail/${id}`)}
+                            >
+                                수정
+                            </EditButton>
+                            <DeleteButton
+                                onClick={onClickDeleteArticleButtonHandler}
+                            >
+                                삭제
+                            </DeleteButton>
+                        </ArticleBottom>
+                    </>
+                )}
             </ArticleWrapper>
         </DetailWrapper>
     );
