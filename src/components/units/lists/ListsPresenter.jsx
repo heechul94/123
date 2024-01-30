@@ -1,6 +1,6 @@
 import AddForm from "components/commons/addForm/AddForm";
 import ListContainer from "./list/ListContainer";
-import Button from "components/commons/buttons/Button";
+import MemberButton from "components/commons/buttons/MemberButton";
 
 const ListsPresenter = ({
     data,
@@ -15,7 +15,7 @@ const ListsPresenter = ({
             <AddForm onSubmitFanLettersHandler={onSubmitFanLettersHandler} />
             <nav>
                 {MEMBERS.map((member) => (
-                    <Button
+                    <MemberButton
                         key={member}
                         text={member}
                         isPickedMember={isPickedMember}
