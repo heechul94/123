@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Button from "../buttons/Button";
+import Button from "../buttons/MemberButton";
 
 const AddFormWrapper = styled.section`
     border: 1px solid black;
@@ -13,6 +13,14 @@ const AddFormInput = styled.input`
 `;
 const AddFormTextarea = styled.textarea`
     resize: none;
+`;
+const SubmitButton = styled.button`
+    border: none;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 `;
 
 const AddForm = ({ onSubmitFanLettersHandler }) => {
@@ -37,7 +45,7 @@ const AddForm = ({ onSubmitFanLettersHandler }) => {
                         <option value={"비챤"}>비챤</option>
                     </select>
                 </AddFormLabel>
-                <Button type="submit" text={"등록"} />
+                <SubmitButton type="submit">등록</SubmitButton>
             </Form>
         </AddFormWrapper>
     );
