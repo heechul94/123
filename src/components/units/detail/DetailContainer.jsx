@@ -1,13 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import DetailPresenter from "./DetailPresenter";
 import { useState } from "react";
+import { editContentValidationCheck } from "shared/library/utils";
 
 const DetailContainer = ({ isEdit }) => {
-    const [editedContent, setEditedContent] = useState();
     const data = JSON.parse(localStorage.getItem("fanLetters"));
     const navigate = useNavigate();
     const { id } = useParams();
     const articleData = data.find((item) => item.id === id);
+    const [editedContent, setEditedContent] = useState(articleData.content);
     const onClickDeleteArticleButtonHandler = () => {
         const deletedData = data.filter((item) => item !== articleData);
         localStorage.setItem("fanLetters", JSON.stringify(deletedData));
@@ -18,9 +19,17 @@ const DetailContainer = ({ isEdit }) => {
     };
     const onClickEditArticleButtonHandler = (event) => {
         event.preventDefault();
-        articleData.content = editedContent;
-        localStorage.setItem("fanLetters", JSON.stringify(data));
-        navigate(`/detail/${id}`);
+        const validatedContent = editContentValidationCheck(
+            editedContent,
+            articleData.content
+        );
+        if (validatedContent) {
+            articleData.content = validatedContent;
+            localStorage.setItem("fanLetters", JSON.stringify(data));
+            navigate(`/detail/${id}`);
+        } else {
+            return;
+        }
     };
     return (
         <DetailPresenter
