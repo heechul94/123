@@ -1,5 +1,7 @@
 import Button from "components/commons/buttons/MemberButton";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { DetailContext } from "shared/context/FanLettersContext";
 import styled from "styled-components";
 
 const DetailWrapper = styled.main`
@@ -31,16 +33,16 @@ const EditButton = styled.button`
     cursor: pointer;
 `;
 
-const DetailPresenter = ({
-    id,
-    isEdit,
-    nickName,
-    createdAt,
-    content,
-    onChangeContentHandler,
-    onClickDeleteArticleButtonHandler,
-    onClickEditArticleButtonHandler,
-}) => {
+const DetailPresenter = ({ isEdit }) => {
+    const {
+        id,
+        nickName,
+        createdAt,
+        content,
+        onClickEditArticleButtonHandler,
+        onChangeContentHandler,
+        onClickDeleteArticleButtonHandler,
+    } = useContext(DetailContext);
     const navigate = useNavigate();
     return (
         <DetailWrapper>

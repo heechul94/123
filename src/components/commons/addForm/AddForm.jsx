@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ListsContext } from "shared/context/FanLettersContext";
 import styled from "styled-components";
 
 const AddFormWrapper = styled.section`
@@ -22,7 +24,8 @@ const SubmitButton = styled.button`
     cursor: pointer;
 `;
 
-const AddForm = ({ onSubmitFanLettersHandler }) => {
+const AddForm = () => {
+    const { onSubmitFanLettersHandler } = useContext(ListsContext);
     return (
         <AddFormWrapper>
             <Form onSubmit={onSubmitFanLettersHandler}>

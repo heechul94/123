@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import DetailPresenter from "./DetailPresenter";
 import { useState } from "react";
 import { editContentValidationCheck } from "shared/library/utils";
+import { DetailContext } from "shared/context/FanLettersContext";
 
 const DetailContainer = ({ isEdit }) => {
     const data = JSON.parse(localStorage.getItem("fanLetters"));
@@ -32,16 +33,17 @@ const DetailContainer = ({ isEdit }) => {
         }
     };
     return (
-        <DetailPresenter
-            {...articleData}
-            onChangeContentHandler={onChangeContentHandler}
-            onClickDeleteArticleButtonHandler={
-                onClickDeleteArticleButtonHandler
-            }
-            onClickEditArticleButtonHandler={onClickEditArticleButtonHandler}
-            isEdit={isEdit}
-            id={id}
-        />
+        <DetailContext.Provider
+            value={{
+                id,
+                ...articleData,
+                onChangeContentHandler,
+                onClickDeleteArticleButtonHandler,
+                onClickEditArticleButtonHandler,
+            }}
+        >
+            <DetailPresenter isEdit={isEdit} />
+        </DetailContext.Provider>
     );
 };
 export default DetailContainer;

@@ -1,10 +1,12 @@
 import ListsPresenter from "./ListsPresenter";
 import { useEffect, useState } from "react";
+import { ListsContext } from "shared/context/FanLettersContext";
 import { getDate, submitValidationCheck } from "shared/library/utils";
 
 const ListsContainer = () => {
     const [fanLetters, setFanLetters] = useState([]);
     const [isPickedMember, setIsPickedMember] = useState("아이네");
+    const MEMBERS = ["아이네", "징버거", "릴파", "주르르", "고세구", "비챤"];
     const onSubmitFanLettersHandler = (event) => {
         event.preventDefault();
         const createdAt = getDate();
@@ -34,12 +36,17 @@ const ListsContainer = () => {
     }, []);
 
     return (
-        <ListsPresenter
-            data={fanLetters}
-            isPickedMember={isPickedMember}
-            setIsPickedMember={setIsPickedMember}
-            onSubmitFanLettersHandler={onSubmitFanLettersHandler}
-        />
+        <ListsContext.Provider
+            value={{
+                data: fanLetters,
+                isPickedMember,
+                setIsPickedMember,
+                onSubmitFanLettersHandler,
+                MEMBERS,
+            }}
+        >
+            <ListsPresenter />
+        </ListsContext.Provider>
     );
 };
 export default ListsContainer;
