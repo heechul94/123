@@ -52,3 +52,15 @@ export const submitValidationCheck = (data) => {
     }
     return data;
 };
+
+export const editContentValidationCheck = (data, defaultData) => {
+    if (data.trim("") === defaultData) {
+        alert("수정된 내용이 없습니다.");
+        return false;
+    }
+    if (data.trim("").length === 0) {
+        alert("내용이 없습니다.");
+        return false;
+    }
+    return data;
+};
