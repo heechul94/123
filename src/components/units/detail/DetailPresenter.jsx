@@ -37,7 +37,6 @@ const DetailPresenter = ({
     nickName,
     createdAt,
     content,
-    editedContent,
     onChangeContentHandler,
     onClickDeleteArticleButtonHandler,
     onClickEditArticleButtonHandler,
@@ -59,7 +58,6 @@ const DetailPresenter = ({
                             <textarea
                                 id="content"
                                 defaultValue={content}
-                                value={editedContent}
                                 onChange={onChangeContentHandler}
                             />
                         </ArticleMiddle>

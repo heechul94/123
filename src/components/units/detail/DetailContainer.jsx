@@ -39,7 +39,6 @@ const DetailContainer = ({ isEdit }) => {
                 onClickDeleteArticleButtonHandler
             }
             onClickEditArticleButtonHandler={onClickEditArticleButtonHandler}
-            editedContent={editedContent}
             isEdit={isEdit}
             id={id}
         />
