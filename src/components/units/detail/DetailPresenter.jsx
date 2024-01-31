@@ -39,7 +39,6 @@ const DetailPresenter = ({ isEdit }) => {
         createdAt,
         content,
         onClickEditArticleButtonHandler,
-        onChangeContentHandler,
         onClickDeleteArticleButtonHandler,
     } = useContext(DetailContext);
     const navigate = useNavigate();
@@ -56,11 +55,7 @@ const DetailPresenter = ({ isEdit }) => {
                 {isEdit ? (
                     <form onSubmit={onClickEditArticleButtonHandler}>
                         <ArticleMiddle>
-                            <textarea
-                                id="content"
-                                defaultValue={content}
-                                onChange={onChangeContentHandler}
-                            />
+                            <textarea name="content" defaultValue={content} />
                         </ArticleMiddle>
                         <ArticleBottom>
                             <button type="submit">적용</button>
