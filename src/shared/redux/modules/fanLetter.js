@@ -46,7 +46,7 @@ const fanLetter = (state = initialState, action) => {
             };
             const newFanLetter = submitValidationCheck(temp);
             if (newFanLetter) {
-                state.fanLetters = [...state.fanLetters, newFanLetter];
+                state.fanLetters = [newFanLetter, ...state.fanLetters];
                 localStorage.setItem(
                     "fanLetters",
                     JSON.stringify(state.fanLetters)
