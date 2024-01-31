@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { DetailContext } from "shared/context/FanLettersContext";
 import styled from "styled-components";
 
 const DetailWrapper = styled.main`
@@ -32,15 +30,15 @@ const EditButton = styled.button`
     cursor: pointer;
 `;
 
-const DetailPresenter = ({ isEdit }) => {
-    const {
-        id,
-        nickName,
-        createdAt,
-        content,
-        onClickEditArticleButtonHandler,
-        onClickDeleteArticleButtonHandler,
-    } = useContext(DetailContext);
+const DetailPresenter = ({
+    isEdit,
+    id,
+    nickName,
+    createdAt,
+    content,
+    onClickEditArticleButtonHandler,
+    onClickDeleteArticleButtonHandler,
+}) => {
     const navigate = useNavigate();
     return (
         <DetailWrapper>

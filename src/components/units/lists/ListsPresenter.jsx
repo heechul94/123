@@ -1,11 +1,14 @@
 import AddForm from "components/commons/addForm/AddForm";
 import ListContainer from "./list/ListContainer";
 import MemberButton from "components/commons/buttons/MemberButton";
-import { useContext } from "react";
-import { ListsContext } from "shared/context/FanLettersContext";
+import { useSelector } from "react-redux";
 
 const ListsPresenter = () => {
-    const { data, MEMBERS, isPickedMember } = useContext(ListsContext);
+    const MEMBERS = ["아이네", "징버거", "릴파", "주르르", "고세구", "비챤"];
+    const data = useSelector(({ fanLetter }) => fanLetter.fanLetters);
+    const isPickedMember = useSelector(
+        ({ fanLetter }) => fanLetter.pickedMember
+    );
     return (
         <main>
             <AddForm />

@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ListsContext } from "shared/context/FanLettersContext";
+import { useDispatch } from "react-redux";
+import { submitLetter } from "shared/redux/modules/fanLetter";
 import styled from "styled-components";
 
 const AddFormWrapper = styled.section`
@@ -25,10 +25,11 @@ const SubmitButton = styled.button`
 `;
 
 const AddForm = () => {
-    const { onSubmitFanLettersHandler } = useContext(ListsContext);
+    const dispatch = useDispatch();
+
     return (
         <AddFormWrapper>
-            <Form onSubmit={onSubmitFanLettersHandler}>
+            <Form onSubmit={(event) => dispatch(submitLetter(event))}>
                 <AddFormLabel>
                     닉네임 :
                     <AddFormInput name="nickName" />

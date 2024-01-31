@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { ListsContext } from "shared/context/FanLettersContext";
+import { useDispatch, useSelector } from "react-redux";
 import { selectButtonColor } from "shared/library/utils";
+import { selectMember } from "shared/redux/modules/fanLetter";
 import styled from "styled-components";
 
 const CustomButton = styled.button`
@@ -15,7 +15,10 @@ const CustomButton = styled.button`
 `;
 
 const MemberButton = ({ text }) => {
-    const { isPickedMember, setIsPickedMember } = useContext(ListsContext);
+    const dispatch = useDispatch();
+    const isPickedMember = useSelector(
+        ({ fanLetter }) => fanLetter.pickedMember
+    );
     const color = selectButtonColor(isPickedMember);
     return (
         <CustomButton
@@ -23,7 +26,7 @@ const MemberButton = ({ text }) => {
             $isPickedMember={isPickedMember}
             color={color}
             onClick={() => {
-                setIsPickedMember(text);
+                dispatch(selectMember(text));
             }}
         >
             {text}
