@@ -8,9 +8,14 @@ const DetailContainer = ({ isEdit }) => {
     const { id } = useParams();
     const articleData = data.find((item) => item.id === id);
     const onClickDeleteArticleButtonHandler = () => {
-        const deletedData = data.filter((item) => item !== articleData);
-        localStorage.setItem("fanLetters", JSON.stringify(deletedData));
-        navigate("/");
+        const isDelete = window.confirm("게시글을 삭제하시겠습니까?");
+        if (isDelete) {
+            const deletedData = data.filter((item) => item !== articleData);
+            localStorage.setItem("fanLetters", JSON.stringify(deletedData));
+            navigate("/");
+        } else {
+            return;
+        }
     };
     const onClickEditArticleButtonHandler = (event) => {
         event.preventDefault();
@@ -22,7 +27,7 @@ const DetailContainer = ({ isEdit }) => {
         if (validatedContent) {
             articleData.content = validatedContent;
             localStorage.setItem("fanLetters", JSON.stringify(data));
-            navigate(`/detail/${id}`);
+            navigate(`/`);
         } else {
             return;
         }
