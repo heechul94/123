@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { submitLetter } from "shared/redux/modules/fanLetter";
 import styled from "styled-components";
@@ -32,11 +33,11 @@ const AddForm = () => {
             <Form onSubmit={(event) => dispatch(submitLetter(event))}>
                 <AddFormLabel>
                     닉네임 :
-                    <AddFormInput name="nickName" />
+                    <AddFormInput name="nickName" maxLength={"12"} />
                 </AddFormLabel>
                 <AddFormLabel>
                     내용 :
-                    <AddFormTextarea name="content" />
+                    <AddFormTextarea name="content" maxLength={"120"} />
                 </AddFormLabel>
                 <AddFormLabel>
                     <select name="member">
@@ -53,4 +54,5 @@ const AddForm = () => {
         </AddFormWrapper>
     );
 };
-export default AddForm;
+export default React.memo(AddForm);
+// export default AddForm;
