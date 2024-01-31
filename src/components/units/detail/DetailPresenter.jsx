@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const DetailWrapper = styled.main`
-    margin: 50% auto;
+    margin: 0 auto;
     border: 1px solid black;
 `;
 const ArticleWrapper = styled.article`
