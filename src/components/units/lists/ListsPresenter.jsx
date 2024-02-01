@@ -5,9 +5,12 @@ import { useSelector } from "react-redux";
 
 const ListsPresenter = () => {
     const MEMBERS = ["아이네", "징버거", "릴파", "주르르", "고세구", "비챤"];
-    const data = useSelector(({ fanLetter }) => fanLetter.fanLetters);
+    const fanLetters = useSelector(({ fanLetter }) => fanLetter.fanLetters);
     const isPickedMember = useSelector(
         ({ fanLetter }) => fanLetter.pickedMember
+    );
+    const filteredFanLetters = fanLetters.filter(
+        (item) => isPickedMember === item.writedTo
     );
     return (
         <main>
@@ -18,10 +21,12 @@ const ListsPresenter = () => {
                 ))}
             </nav>
             <ul>
-                {data?.map((item) =>
-                    isPickedMember === item.writedTo ? (
+                {filteredFanLetters.length ? (
+                    filteredFanLetters.map((item) => (
                         <ListContainer key={item.id} item={item} />
-                    ) : null
+                    ))
+                ) : (
+                    <div>없어요 좀 뭐라고 적어봐요</div>
                 )}
             </ul>
         </main>
