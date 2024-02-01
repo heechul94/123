@@ -1,6 +1,6 @@
-import DetailContainer from "components/units/detail/DetailContainer";
+import EditDetailContainer from "components/units/editDetail/EditDetailContainer";
 
 const EditDetail = () => {
-    return <DetailContainer isEdit={true} />;
+    return <EditDetailContainer />;
 };
 export default EditDetail;

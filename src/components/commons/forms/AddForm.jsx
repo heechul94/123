@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { getDate, submitValidationCheck } from "shared/library/utils";
 import { submitLetter } from "shared/redux/modules/fanLetter";
 import styled from "styled-components";
 
@@ -28,9 +29,26 @@ const SubmitButton = styled.button`
 const AddForm = () => {
     const dispatch = useDispatch();
 
+    const onSubmit = (event) => {
+        event.preventDefault();
+        const formData = {
+            id: crypto.randomUUID(),
+            nickName: event.target.nickName.value,
+            content: event.target.content.value,
+            writedTo: event.target.member.value,
+            createdAt: getDate(),
+        };
+        const validatedData = submitValidationCheck(formData);
+        if (validatedData) {
+            console.log(validatedData);
+            dispatch(submitLetter(validatedData));
+            event.target.reset();
+        }
+    };
+
     return (
         <AddFormWrapper>
-            <Form onSubmit={(event) => dispatch(submitLetter(event))}>
+            <Form onSubmit={onSubmit}>
                 <AddFormLabel>
                     닉네임 :
                     <AddFormInput name="nickName" maxLength={"12"} />
@@ -54,5 +72,4 @@ const AddForm = () => {
         </AddFormWrapper>
     );
 };
-export default React.memo(AddForm);
-// export default AddForm;
+export default AddForm;

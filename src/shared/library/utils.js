@@ -62,7 +62,7 @@ export const editContentValidationCheck = (data, defaultData) => {
         alert("내용이 없습니다.");
         return false;
     }
-    return data;
+    return true;
 };
 export const convertedCreatedAt = (createdAt) => {
     const createdAtArr = createdAt.split(" ");
