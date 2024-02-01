@@ -1,4 +1,4 @@
-import { getDate } from "shared/library/utils";
+import { convertedCreatedAt } from "shared/library/utils";
 import styled from "styled-components";
 
 const LetterWrapper = styled.article`
@@ -32,10 +32,6 @@ const Content = styled.p`
 `;
 
 const ListPresenter = ({ item }) => {
-    const createdAtArr = item.createdAt.split(" ");
-    const nowDate = getDate().split(" ")[0];
-    const createdDate = createdAtArr[0];
-    const createdHourMinute = createdAtArr[1];
     return (
         <li>
             <LetterWrapper>
@@ -44,11 +40,7 @@ const ListPresenter = ({ item }) => {
                         <UserProfile src={item.avatar} alt="profile" />
                         <span>{item.nickName}</span>
                     </UserInfoWrapper>
-                    <span>
-                        {nowDate === createdDate
-                            ? createdHourMinute
-                            : createdDate}
-                    </span>
+                    <span>{convertedCreatedAt(item.createdAt)}</span>
                 </LetterHeader>
                 <Content>{item.content}</Content>
             </LetterWrapper>
