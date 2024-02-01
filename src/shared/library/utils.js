@@ -64,3 +64,14 @@ export const editContentValidationCheck = (data, defaultData) => {
     }
     return data;
 };
+export const convertedCreatedAt = (createdAt) => {
+    const createdAtArr = createdAt.split(" ");
+    const nowDate = getDate().split(" ")[0];
+    const createdDate = createdAtArr[0];
+    const createdHourMinute = createdAtArr[1];
+    if (nowDate === createdDate) {
+        return createdHourMinute;
+    } else {
+        return createdDate;
+    }
+};
