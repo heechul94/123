@@ -77,8 +77,7 @@ const SubmitButton = styled.button`
   padding: 0.3rem;
   border: none;
   border-radius: 5px;
-  background-color: #00000050;
-  backdrop-filter: blur(5px);
+  background-color: #008d62;
   box-shadow: 0rem 0.1rem 1rem #00000050;
   cursor: pointer;
 `;
