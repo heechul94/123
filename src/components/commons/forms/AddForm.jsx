@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 const AddFormWrapper = styled.section`
   align-self: center;
-  width: fit-content;
   padding: 2rem;
   margin: 1rem;
   border: none;
@@ -19,6 +18,12 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  span {
+    display: inline-block;
+    align-self: center;
+    margin-bottom: 1rem;
+    color: white;
+  }
   select {
     padding: 0.3rem;
     margin-bottom: 1rem;
@@ -109,6 +114,7 @@ const AddForm = ({ fanLetters }) => {
   return (
     <AddFormWrapper>
       <Form onSubmit={onSubmit}>
+        <span>응원의 글을 남겨주세요!</span>
         <AddFormLabel>
           <AddFormInput
             name="nickName"
