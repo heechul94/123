@@ -48,6 +48,7 @@ const AddFormInput = styled.input`
   box-shadow: 0rem 0.1rem 1rem #00000050;
   &:focus {
     outline: none;
+    background-color: none;
   }
   &::placeholder {
     color: white;
