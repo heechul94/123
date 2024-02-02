@@ -1,6 +1,6 @@
 import EditDetailContainer from "components/units/editDetail/EditDetailContainer";
 
 const EditDetail = () => {
-    return <EditDetailContainer />;
+  return <EditDetailContainer />;
 };
 export default EditDetail;
