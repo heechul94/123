@@ -1,6 +1,5 @@
 const SUBMIT_LETTER = "fanLetter/SUBMIT_LETTER";
-const RERENDER_LETTER = "fanLetter/RERENDER_LETTER";
-const SELECT_MEMBER = "fanLetter/SELECT_MEMBER";
+const SET_LETTERS = "fanLetter/SET_LETTERS";
 
 export const submitLetter = (payload) => {
   return {
@@ -8,27 +7,20 @@ export const submitLetter = (payload) => {
     payload,
   };
 };
-export const reRenderLetter = (payload) => {
+export const setLetters = (payload) => {
   return {
-    type: RERENDER_LETTER,
-    payload,
-  };
-};
-export const selectMember = (payload) => {
-  return {
-    type: SELECT_MEMBER,
+    type: SET_LETTERS,
     payload,
   };
 };
 
 const data = {
   fanLetters: [],
-  pickedMember: "아이네",
 };
 
 const fanLetter = (state = data, action) => {
   switch (action.type) {
-    case RERENDER_LETTER:
+    case SET_LETTERS:
       return {
         ...state,
         fanLetters: action.payload,
@@ -37,12 +29,6 @@ const fanLetter = (state = data, action) => {
       return {
         ...state,
         fanLetters: [action.payload, ...state.fanLetters],
-      };
-
-    case SELECT_MEMBER:
-      state.pickedMember = action.payload;
-      return {
-        ...state,
       };
 
     default:
