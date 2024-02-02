@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 const LetterWrapper = styled.article`
   padding: 1rem;
-  border: 1px solid black;
-  border-radius: 5px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff40;
+  backdrop-filter: blur(5px);
+  box-shadow: 0rem 0.1rem 1rem #00000050;
 `;
 const LetterHeader = styled.div`
   display: flex;
@@ -21,8 +25,11 @@ const UserInfoWrapper = styled.div`
 `;
 const UserProfile = styled.img`
   width: 2rem;
+  padding: 0.5rem;
   margin-right: 1rem;
-  border-radius: 50%;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0rem 0.1rem 0.3rem #00000050;
 `;
 const Content = styled.p`
   padding: 1rem;

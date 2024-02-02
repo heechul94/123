@@ -40,6 +40,7 @@ section {
 body {
     box-sizing: border-box;
     line-height: 1;
+    background-image: linear-gradient(to right, #e64371, #f361a6);
 }
 
 ol,

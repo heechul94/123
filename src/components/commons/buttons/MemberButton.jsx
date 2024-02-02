@@ -4,12 +4,13 @@ import { selectMember } from "shared/redux/modules/selector";
 import styled from "styled-components";
 
 const CustomButton = styled.button`
+  padding: 0.5rem 1rem;
+  color: white;
   border: none;
-  color: ${(props) => (props.$selectedMember === props.id ? "white" : "black")};
-  border: 1px solid black;
+  border: 1px solid inherit;
   border-radius: 5px;
   background-color: ${(props) =>
-    props.$selectedMember === props.id ? props.color : "white"};
+    props.$selectedMember === props.id ? props.color : "inherit"};
   cursor: pointer;
 `;
 
