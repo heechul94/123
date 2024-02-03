@@ -45,6 +45,14 @@ const AddFormInput = styled.input`
   border: none;
   border-radius: 10px;
   background-color: #00000050;
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px 00000050 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
   &:focus {
     outline: none;
     background-color: none;
