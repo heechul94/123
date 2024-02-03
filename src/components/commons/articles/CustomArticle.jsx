@@ -3,8 +3,8 @@ import styled from "styled-components";
 const ArticleMiddle = styled.div`
   margin: 1rem 0;
   p {
-    width: 95%;
     padding: 1rem;
+    margin: 0 auto;
     word-wrap: break-word;
     line-height: 2rem;
     color: white;

@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+*{
+    box-sizing: border-box;
+}
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,
 a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,
 strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,
@@ -38,7 +41,6 @@ section {
 }
 
 body {
-    box-sizing: border-box;
     line-height: 1;
     background-image: linear-gradient(to right, #e64371, #f361a6);
 }

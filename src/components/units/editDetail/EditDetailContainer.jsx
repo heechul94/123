@@ -14,7 +14,6 @@ const HomeAnchor = styled(Link)`
   position: fixed;
   top: 2rem;
   left: 2rem;
-  width: 5rem;
   padding: 0.5rem;
   text-align: center;
   border: none;

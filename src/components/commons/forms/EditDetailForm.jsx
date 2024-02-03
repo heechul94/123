@@ -4,21 +4,22 @@ const Form = styled.form`
   width: 100%;
 `;
 const ArticleMiddle = styled.div`
+  width: 100%;
   margin: 1rem 0;
-  textarea {
-    width: 95%;
-    height: auto;
-    padding: 1rem 1rem 0;
-    font-size: 1rem;
-    line-height: 2rem;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    background-color: #ffffff80;
-    backdrop-filter: blur(1px);
-    box-shadow: 0rem 0.1rem 0.4rem #00000050;
-    resize: none;
-  }
+`;
+const TextArea = styled.textarea`
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff80;
+  backdrop-filter: blur(1px);
+  box-shadow: 0rem 0.1rem 0.4rem #00000050;
+  resize: none;
 `;
 const ArticleBottom = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ const EditDetailForm = ({ content, onEditClick, onClickNavigate }) => {
   return (
     <Form onSubmit={onEditClick}>
       <ArticleMiddle>
-        <textarea
+        <TextArea
           name="content"
           ref={textarea}
           defaultValue={content}

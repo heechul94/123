@@ -1,6 +1,10 @@
 import { convertedCreatedAt } from "shared/library/utils";
 import styled from "styled-components";
 
+const List = styled.li`
+  padding: 1rem 5rem;
+`;
+
 const LetterWrapper = styled.article`
   padding: 1rem;
   color: white;
@@ -40,7 +44,7 @@ const Content = styled.p`
 
 const ListPresenter = ({ item }) => {
   return (
-    <li>
+    <List>
       <LetterWrapper>
         <LetterHeader>
           <UserInfoWrapper>
@@ -51,7 +55,7 @@ const ListPresenter = ({ item }) => {
         </LetterHeader>
         <Content>{item.content}</Content>
       </LetterWrapper>
-    </li>
+    </List>
   );
 };
 export default ListPresenter;
