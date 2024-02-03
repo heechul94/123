@@ -1,4 +1,4 @@
-import ListsContainer from "components/units/lists/ListsContainer";
+import ListsContainer from "components/units/lists/Lists";
 
 const Home = () => {
   return <ListsContainer />;

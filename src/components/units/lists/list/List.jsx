@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import { convertedCreatedAt } from "shared/library/utils";
 import styled from "styled-components";
 
-const List = styled.li`
-  padding: 1rem 5rem;
+const ListWrapper = styled(Link)`
+  display: block;
+  max-width: 1200px;
+  margin: 1rem auto;
 `;
-
+const List = styled.li``;
 const LetterWrapper = styled.article`
   padding: 1rem;
   color: white;
@@ -26,9 +29,10 @@ const UserInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 50rem;
 `;
 const UserProfile = styled.img`
-  width: 7%;
+  width: 4rem;
   padding: 0.5rem;
   margin-right: 1rem;
   border-radius: 10px;
@@ -42,20 +46,22 @@ const Content = styled.p`
   text-overflow: ellipsis;
 `;
 
-const ListPresenter = ({ item }) => {
+const ListContainer = ({ item }) => {
   return (
-    <List>
-      <LetterWrapper>
-        <LetterHeader>
-          <UserInfoWrapper>
-            <UserProfile src={item.avatar} alt="profile" />
-            <span>{item.nickName}</span>
-          </UserInfoWrapper>
-          <span>{convertedCreatedAt(item.createdAt)}</span>
-        </LetterHeader>
-        <Content>{item.content}</Content>
-      </LetterWrapper>
-    </List>
+    <ListWrapper to={`detail/${item.id}`}>
+      <List>
+        <LetterWrapper>
+          <LetterHeader>
+            <UserInfoWrapper>
+              <UserProfile src={item.avatar} alt="profile" />
+              <span>{item.nickName}</span>
+            </UserInfoWrapper>
+            <span>{convertedCreatedAt(item.createdAt)}</span>
+          </LetterHeader>
+          <Content>{item.content}</Content>
+        </LetterWrapper>
+      </List>
+    </ListWrapper>
   );
 };
-export default ListPresenter;
+export default ListContainer;
