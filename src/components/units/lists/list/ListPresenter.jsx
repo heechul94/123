@@ -28,7 +28,7 @@ const UserInfoWrapper = styled.div`
   align-items: center;
 `;
 const UserProfile = styled.img`
-  width: 2rem;
+  width: 7%;
   padding: 0.5rem;
   margin-right: 1rem;
   border-radius: 10px;
