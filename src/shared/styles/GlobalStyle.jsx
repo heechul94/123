@@ -25,7 +25,17 @@ a:visited{
     color: inherit;
 }
 
+body {
+    line-height: 1;
+    background-image: linear-gradient(to right, #e64371, #f361a6);
+}
 /* HTML5 display-role reset for older browsers */
+
+main{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 article,
 aside,
 details,
@@ -40,10 +50,6 @@ section {
     display: block;
 }
 
-body {
-    line-height: 1;
-    background-image: linear-gradient(to right, #e64371, #f361a6);
-}
 
 ol,
 ul {
