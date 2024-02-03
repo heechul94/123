@@ -1,5 +1,5 @@
 import AddForm from "components/commons/forms/AddForm";
-import ListContainer from "./list/ListContainer";
+import ListContainer from "./list/List";
 import MemberButton from "components/commons/buttons/MemberButton";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
