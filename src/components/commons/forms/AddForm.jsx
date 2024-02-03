@@ -11,8 +11,6 @@ const AddFormWrapper = styled.section`
   border: none;
   border-radius: 10px;
   background-color: #ffffff40;
-  backdrop-filter: blur(5px);
-  box-shadow: 0rem 0.1rem 1rem #00000050;
 `;
 const Form = styled.form`
   display: flex;
@@ -31,8 +29,6 @@ const Form = styled.form`
     border: none;
     border-radius: 5px;
     background-color: #00000050;
-    backdrop-filter: blur(5px);
-    box-shadow: 0rem 0.1rem 1rem #00000050;
     &:focus {
       outline: none;
     }
@@ -49,8 +45,6 @@ const AddFormInput = styled.input`
   border: none;
   border-radius: 10px;
   background-color: #00000050;
-  backdrop-filter: blur(5px);
-  box-shadow: 0rem 0.1rem 1rem #00000050;
   &:focus {
     outline: none;
     background-color: none;
@@ -67,8 +61,6 @@ const AddFormTextarea = styled.textarea`
   border: none;
   border-radius: 10px;
   background-color: #00000050;
-  backdrop-filter: blur(5px);
-  box-shadow: 0rem 0.1rem 1rem #00000050;
   resize: none;
   &:focus {
     outline: none;
@@ -83,7 +75,6 @@ const SubmitButton = styled.button`
   border: none;
   border-radius: 5px;
   background-color: #008d62;
-  box-shadow: 0rem 0.1rem 1rem #00000050;
   cursor: pointer;
 `;
 

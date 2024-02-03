@@ -14,8 +14,6 @@ const LetterWrapper = styled.article`
   border: none;
   border-radius: 10px;
   background-color: #ffffff40;
-  backdrop-filter: blur(5px);
-  box-shadow: 0rem 0.1rem 1rem #00000050;
 `;
 const LetterHeader = styled.div`
   display: flex;
@@ -37,7 +35,6 @@ const UserProfile = styled.img`
   margin-right: 1rem;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0rem 0.1rem 0.3rem #00000050;
 `;
 const Content = styled.p`
   padding: 1rem;
