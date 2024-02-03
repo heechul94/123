@@ -1,7 +1,8 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import EditDetailForm from "components/commons/forms/EditDetailForm";
 import { useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { editContentValidationCheck } from "shared/library/utils";
 import styled from "styled-components";
-import CustomArticle from "components/commons/articles/CustomArticle";
 
 const DetailWrapper = styled.main`
   display: flex;
@@ -53,25 +54,27 @@ const ArticleTop = styled.div`
   }
 `;
 
-const DetailContainer = () => {
-  const data = useSelector(({ fanLetter }) => fanLetter.fanLetters);
+const EditDetailContainer = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { avatar, nickName, createdAt, writedTo, content } = data.find(
-    (item) => item.id === id
-  );
-  const onDeleteClick = () => {
-    const isDelete = window.confirm("게시글을 삭제하시겠습니까?");
-    if (isDelete) {
-      const deletedData = data.filter((item) => item.id !== id);
-      localStorage.setItem("fanLetters", JSON.stringify(deletedData));
-      navigate("/");
+  const data = useSelector(({ fanLetter }) => fanLetter.fanLetters);
+  let articleData = data.find((item) => item.id === id);
+  const onEditClick = (event) => {
+    event.preventDefault();
+    const editedContent = event.target.content.value;
+    const isValid = editContentValidationCheck(
+      editedContent,
+      articleData.content
+    );
+    if (isValid) {
+      articleData.content = editedContent;
+      localStorage.setItem("fanLetters", JSON.stringify(data));
+      navigate(`/`);
     }
   };
-  const navigateToEdit = () => {
-    navigate(`/editDetail/${id}`);
+  const onClickNavigate = () => {
+    navigate(`/detail/${id}`);
   };
-
   return (
     <DetailWrapper>
       <HomeAnchor to="/">
@@ -80,19 +83,20 @@ const DetailContainer = () => {
       <ArticleWrapper>
         <ArticleTop>
           <div>
-            <img src={avatar} alt="profile" />
-            <span>{nickName}</span>
+            <img src={articleData.avatar} alt="profile" />
+            <span>{articleData.nickName}</span>
           </div>
-          <span>{createdAt.split(" ")[0]}</span>
+          <span>{articleData.createdAt.split(" ")[0]}</span>
         </ArticleTop>
-        <span>To : {writedTo}</span>
-        <CustomArticle
-          content={content}
-          onDeleteClick={onDeleteClick}
-          navigateToEdit={navigateToEdit}
+        <span>To : {articleData.writedTo}</span>
+        <EditDetailForm
+          content={articleData.content}
+          onEditClick={onEditClick}
+          onClickNavigate={onClickNavigate}
         />
       </ArticleWrapper>
     </DetailWrapper>
   );
 };
-export default DetailContainer;
+
+export default EditDetailContainer;
