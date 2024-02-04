@@ -22,12 +22,10 @@ const fanLetter = (state = data, action) => {
   switch (action.type) {
     case SET_LETTERS:
       return {
-        ...state,
         fanLetters: action.payload,
       };
     case SUBMIT_LETTER:
       return {
-        ...state,
         fanLetters: [action.payload, ...state.fanLetters],
       };
 
