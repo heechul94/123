@@ -68,4 +68,5 @@ Detail
 # asset 출처
 
 이세계아이돌 로고 : [왁물원 우왁굳 팬아트 게시판](https://cafe.naver.com/steamindiegame/3417808)
+
 프로필이미지 : [왁물원 OGQ 고멤티콘 공모전 게시판](https://cafe.naver.com/steamindiegame/9876783)
